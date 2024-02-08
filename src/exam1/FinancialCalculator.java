@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class FinancialCalculator {
     private static final int DAYS_IN_MONTH = 30;
-    private static BigDecimal[] expenses = new BigDecimal[DAYS_IN_MONTH];
+    private static BigDecimal[] cost  = new BigDecimal[DAYS_IN_MONTH];
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -53,32 +53,32 @@ public class FinancialCalculator {
         System.out.print("Введите сумму трат за текущий день: ");
         BigDecimal expense = scanner.nextBigDecimal();
 
-        if (expenses[day - 1] != null) {
+        if (cost[day - 1] != null) {
             System.out.print("За этот день уже есть запись. Хотите ли вы перезаписать сумму? (yes/no): ");
             String answer = scanner.next();
             if (answer.equalsIgnoreCase("yes")) {
-                expenses[day - 1] = expense;
+                cost[day - 1] = expense;
                 System.out.println("Сумма успешно перезаписана");
             }
         } else {
-            expenses[day - 1] = expense;
+            cost[day - 1] = expense;
             System.out.println("Сумма успешно записана");
         }
     }
 
     private static void displayExpenses() {
         System.out.println("Траты за месяц:");
-        for (int i = 0; i < expenses.length; i++) {
-            System.out.println((i + 1) + " день – " + (expenses[i] == null ? "0" : expenses[i]) + " руб");
+        for (int i = 0; i < cost.length; i++) {
+            System.out.println((i + 1) + " день – " + (cost[i] == null ? "0" : cost [i]) + " руб");
         }
     }
 
     private static void displayMaxExpense() {
         BigDecimal maxExpense = BigDecimal.ZERO;
         int maxExpenseDay = 0;
-        for (int i = 0; i < expenses.length; i++) {
-            if (expenses[i] != null && expenses[i].compareTo(maxExpense) > 0) {
-                maxExpense = expenses[i];
+        for (int i = 0; i < cost.length; i++) {
+            if (cost[i] != null && cost[i].compareTo(maxExpense) > 0) {
+                maxExpense = cost[i];
                 maxExpenseDay = i + 1;
             }
         }
@@ -87,9 +87,9 @@ public class FinancialCalculator {
 
     private static void currencyConverter() {
         BigDecimal totalExpenses = BigDecimal.ZERO;
-        for (int i = 0; i < expenses.length; i++) {
-            if (expenses[i] != null) {
-                totalExpenses = totalExpenses.add(expenses[i]);
+        for (int i = 0; i < cost.length; i++) {
+            if (cost[i] != null) {
+                totalExpenses = totalExpenses.add(cost[i]);
             }
         }
         System.out.println("Траты за месяц: " + totalExpenses + " руб");
