@@ -11,12 +11,14 @@ public class FinancialCalculator {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println("----------------------------------------------");
             System.out.println("Меню:");
             System.out.println("1 – Ввести расходы за определенный день");
             System.out.println("2 – Траты за месяц");
             System.out.println("3 – Самая большая сумма расхода за месяц");
             System.out.println("4 – Конвертер валюты");
             System.out.println("0 – Выход");
+            System.out.println("----------------------------------------------");
             System.out.print("Выберите пункт меню: ");
             int menu = scanner.nextInt();
 
@@ -41,7 +43,6 @@ public class FinancialCalculator {
             }
         }
     }
-
     private static void enterExpenses(Scanner scanner) {
         System.out.println("Ввести расходы за определенный день");
         System.out.print("Введите день (от 1 до 30): ");
