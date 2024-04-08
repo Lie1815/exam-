@@ -1,11 +1,12 @@
 package Play;
 
 public class Hero {
-    private String type;
-    private int hp;
-    private String skill;
-    private int damage;
-    private int gold;
+    private static String type;
+    private static int hp;
+    private static String skill;
+    private static int damage;
+    private static int gold;
+
 
     public Hero(String type, int hp, String skill, int damage, int gold){
         this.type = type;
@@ -13,19 +14,19 @@ public class Hero {
         this.damage = damage;
         this.gold = gold;
     }
-    public String getType(){
+    public static String getType(){
         return type;
     }
-    public int getHp(){
+    public static int getHp(){
         return hp;
     }
-    public String getSkill(){
+    public static String getSkill(){
         return skill;
     }
-    public int getDamage(){
+    public static int getDamage(){
         return damage;
     }
-    public int getGold(){
+    public static int getGold(){
         return gold;
     }
 }
